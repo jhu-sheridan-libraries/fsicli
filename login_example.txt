@@ -1,0 +1,34 @@
+Get salt:
+
+curl 'http://fsitest.mse.jhu.edu/fsi/service/login' -H 'Accept: application/json' -H 'Cookie: JSESSIONID=7B8F8388E3A3779A3A99E660AE7E1EA7; _ga=GA1.2.969220152.1463408664'
+
+{
+    "state": "success",
+    "salt": "cf12ffe48253f8831c9e4a4ee4ddc1283237b6c8517f81a252e9e1a746d72fa8d71c4cbeb9eaff1df0dfb1751ba760a97cce7694e464f7db5ca7546537e576",
+    "message": "",
+    "loginmethod": "hash"
+}
+
+Username: admin
+Password: xxxxxxxxx
+salt: cf12ffe48253f8831c9e4a4ee4ddc1283237b6c8517f81a252e9e1a746d72fa8d71c4cbeb9eaff1df0dfb1751ba760a97cce7694e464f7db5ca7546537e576
+sha256(password): a48f1565afa4a7372b6b64b4707cbf79c8b507beceb3be3a2e5ad66e0f9c10ae
+sha256(salt + sha256(password)): 865fe0a59ebab91e6a7681a683a8463791e71385ffdbb746e2e65acffe762a05
+
+Do the login:
+
+curl 'http://fsitest.mse.jhu.edu/fsi/service/login' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: application/json' -H 'Cookie: JSESSIONID=7B8F8388E3A3779A3A99E660AE7E1EA7; _ga=GA1.2.969220152.1463408664' --data 'username=admin&password=865fe0a59ebab91e6a7681a683a8463791e71385ffdbb746e2e65acffe762a05'
+
+{
+    "username": "admin",
+    "state": "success",
+    "messageCode": 1,
+    "message": "",
+    "expiry": 1469030544,
+    "accesslevel": "",
+    "serverversion": "FSI Server 16.07.16 RC1"
+}
+
+
+
+
